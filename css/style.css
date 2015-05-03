@@ -1,8 +1,9 @@
-/*
 
 
-.tempGuidance{
-	
+
+
+
+tempGuidance{
 	border-color:black;
 	border-top:1px solid;
 	border-bottom:1px solid;
@@ -12,17 +13,14 @@
       
 
 }
-*/
 
-.small-saying{
-	font-size:30px;
-	text-align:center;
-	letter-spacing:4px;
-	padding-top:7px;
-	padding-bottom:7px;
-	font-family:"Arial";
-	font-style: italic;
-	font-weight: 150;
+.imagesss img{
+	display:block;
+	width:50%;
+	height:50%;
+	margin-left:auto;
+	margin-right:auto;
+	align:center;
 
 	 }
 
@@ -45,15 +43,12 @@
 }
 .short-heading{
 
-	margin-left:20%; 
-	margin-right:20%; 
+	margin:0px;
 	padding: 5px 20px;
 	font-weight: 100;
 	border-bottom: 1px solid;
 	border-color: #A1A1A1;
 	border-width: 3px;
-	border-length: 50%;
-			
 	text-align:center;
 	letter-spacing:2px;
 	font-size:40px;
