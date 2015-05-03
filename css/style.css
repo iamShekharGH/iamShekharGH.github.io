@@ -33,7 +33,21 @@ tempGuidance{
 	img-align:center;
 
 }
-
+.sociallinks{
+	float:right;
+	//width:70%;
+	//height:70%;
+	padding-right:10%;
+	//margin:auto;
+	display:inline;
+	//margin:40px auto;
+	 }
+.sociallinks img{
+	float:right;
+	width:3%;
+	height:3%;
+	padding:1px;
+	 }
 .wrapper{
 	margin:auto;
 	width:90%;
@@ -54,6 +68,14 @@ tempGuidance{
 	font-size:40px;
 	margin-bottom:60px;
 }
+.small-saying{
+	font-weight:127;
+	font-size:35px;
+	text-align:center;
+	font-family:"Times New Roman";
+	letter-spacing:1px;
+
+	 }
 .table-of-contents-heading .table-of-contents{
 	display:inline;
 	padding: 5px 5px 5px 0px;
