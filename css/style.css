@@ -84,12 +84,12 @@ tempGuidance{
 	letter-spacing:1px;
 
 	 }
-.table-of-contents-heading .table-of-contents{
+.contents-heading .table-of-contents{
 	display:inline;
 	padding: 5px 5px 5px 0px;
 	background-color:#FFFFF;
 }
-.table-of-contents-heading a{
+.contents-heading a{
 
 	font-style: italic;
 	color: #000000;
@@ -101,7 +101,7 @@ tempGuidance{
 	width:100%;
 	margin-bottom:30px;
 }
-.table-of-contents-page-no{
+.contents-page-no{
 	float:right;
 	font-weight:bold;
 	padding-left:5px;
@@ -124,7 +124,7 @@ tempGuidance{
 
 }
 
-.table-of-contents-entry li:after{
+.contents-entry li:after{
 	content:"......................................";
 	z-index:0;
 }
@@ -137,7 +137,7 @@ a:visited{
 a:hover{
 	color:#320400;
 }
-.table-of-contents-entry {
+.contents-entry {
 //	font-family:"Times New Roman";
 
 	font-family: 'Shadows Into Light', cursive;
