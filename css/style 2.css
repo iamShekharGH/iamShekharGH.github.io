@@ -1,4 +1,9 @@
-tempGuidance{
+
+
+
+
+
+.tempGuidance{
 	border-color:black;
 	border-top:1px solid;
 	border-bottom:1px solid;
@@ -8,6 +13,7 @@ tempGuidance{
       
 
 }
+
 
 .imagesss img{
 	display:block;
@@ -26,15 +32,11 @@ tempGuidance{
 	padding-left:15%;
 	padding-right:15%;
 	 }
+.imagess3 img{
+	width:60%
+	height:60%;
+	display:inline;
 
-.imagesss3 img{
-	padding-left:20%;
-	padding-right:40%;
-	border:1px solid;
-	align:center;
-	padding:2px;
-
-}
 .main-page-logo{
 	width:70%;  
 	height:70%;  
@@ -79,6 +81,21 @@ tempGuidance{
 	font-size:40px;
 	margin-bottom:60px;
 }
+
+
+
+
+.article {
+	font-weight:127;
+	text-align:center;
+	letter-spacing:1.5px;
+	font-size:30px;
+	padding:5px 20px;
+	display:inline;
+	color:maroon;
+
+	 }
+
 .small-saying{
 	font-weight:127;
 	font-size:35px;
@@ -154,3 +171,5 @@ a:hover{
 	vlink:silver;
 
 }
+
+
