@@ -1,4 +1,4 @@
-# ShekharGH.github.io
+# iamShekharGH.github.io
 Testing a website i m working on
 the domain is iamshekhargh.com
 if nt that you can c it on shekhargh.github.io

@@ -1,3 +1,4 @@
+
 tempGuidance{
 	border-color:black;
 	border-top:1px solid;
@@ -7,6 +8,15 @@ tempGuidance{
 	border-left:1px solid;
       
 
+}
+
+
+body{
+	background:fefffe;
+}
+
+.container{
+	margin: 0 15%;
 }
 
 .imagesss img{
