@@ -1,3 +1,4 @@
+
 tempGuidance{
 	border-color:black;
 	border-top:1px solid;
@@ -7,6 +8,15 @@ tempGuidance{
 	border-left:1px solid;
       
 
+}
+
+
+body{
+	background:fefffe;
+}
+
+.container{
+	margin: 0 15%;
 }
 
 .imagesss img{
@@ -28,11 +38,16 @@ tempGuidance{
 	 }
 
 .imagesss3 img{
+	margin:15% 0 0 10%;
+	padding: 50%;
 	padding-left:20%;
 	padding-right:40%;
-	border:1px solid;
+
+	border:5px solid;
 	align:center;
 	padding:2px;
+	padding: 1%;
+	width: 30%;
 
 }
 .main-page-logo{
@@ -89,7 +104,7 @@ tempGuidance{
 	 }
 .contents-heading .table-of-contents{
 	display:inline;
-	padding: 5px 5px 5px 0px;
+	padding: 5px 5px 5px 40px;
 	background-color:#FFFFF;
 }
 .contents-heading a{
@@ -97,7 +112,12 @@ tempGuidance{
 	font-style: italic;
 	color: #000000;
 }
+.tablefContents {
+	padding: 40px 40px ;
+
+}
 .table-of-contents li{
+
 	position:relative;
 	overflow:hidden;
 	width:330px;
