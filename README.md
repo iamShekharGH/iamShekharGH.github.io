@@ -1,6 +1,6 @@
 # iamShekharGH.github.io
-Testing a website i m working on
-the domain is iamshekhargh.com
-if nt that you can c it on shekhargh.github.io
-its a work in progress so dnt judge yet... 
-do suggest nething gud n nice u can think of.
+the domain was iamshekhargh.com 
+but now its shekhargh.github.io
+It was a work in progress at some time but i kinda lost interest and its stuck on this.
+So yeah, maybe sometine in the future i'll create a less hideous(Its not spelled hidious i googled) looking github page but a lot later than sooner.
+
