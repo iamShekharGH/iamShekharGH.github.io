@@ -161,11 +161,11 @@ a:hover{
 	color:#320400;
 }
 .contents-entry {
-//	font-family:"Times New Roman";
+	font-family:"Times New Roman";
 
-	font-family: 'Shadows Into Light', cursive;
-	font-family: 'Pacifico', cursive;
-	font-family: 'Indie Flower', cursive;
+/* 	font-family: 'Shadows Into Light', cursive; */
+/* 	font-family: 'Pacifico', cursive; */
+/* 	font-family: 'Indie Flower', cursive; */
 	font-size:25px;
 	content:"........................................................"
 	z-index:-1;
