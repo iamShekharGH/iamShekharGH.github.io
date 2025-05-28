@@ -25,209 +25,447 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Fixed sidebar for larger screens */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto; /* Allows scrolling within the sidebar if content is long */
+            padding-right: 1rem; /* To prevent scrollbar from touching content */
+            z-20; /* Ensure sidebar is above main content */
+        }
+        .main-content {
+            margin-left: 288px; /* Tailwind's w-72 is 288px. Adjust this to match your sidebar width */
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative; /* Sidebar is not fixed on mobile */
+                height: auto;
+                width: 100%;
+                overflow-y: visible;
+                padding-right: 0;
+                padding-top: 5rem; /* Add padding to account for fixed mobile nav */
+            }
+            .main-content {
+                margin-left: 0;
+                padding-top: 0; /* Remove top padding as mobile nav is now at top */
+            }
+            /* Hide the main navigation links in the mobile sidebar since the sticky header has them */
+            .mobile-hidden-in-sidebar {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+    <nav class="bg-white shadow-md fixed w-full z-30 top-0 md:hidden">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home" class="text-xl font-semibold text-gray-700 hover:text-blue-600 transition duration-300">@iamShekharGH</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">About</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">Projects</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+            <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <a href="#about" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">About</a>
+            <a href="#skills" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Skills</a>
+            <a href="#experience" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Experience</a>
             <a href="#projects" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Projects</a>
+            <a href="#education" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Education</a>
             <a href="#contact" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Contact</a>
         </div>
     </nav>
 
-    <header id="home" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center justify-center">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto">
+
+    <div class="flex flex-col md:flex-row">
+
+        <aside class="sidebar w-full md:w-72 bg-gradient-to-br from-blue-700 to-indigo-800 text-white shadow-lg py-10 md:py-20 px-6">
+            <div class="text-center">
                 <img src="https://placehold.co/150x150/FFFFFF/3B82F6?text=SG" alt="Shekhar GH" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Shekhar GH</h1>
-                <p class="text-lg md:text-2xl mb-8 text-indigo-100">Android Developer | Kotlin | Jetpack Compose | MVVM</p>
-                <a href="#projects" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 text-lg">View My Work</a>
+                <h1 class="text-3xl font-bold mb-2">Shekhar GH</h1>
+                <p class="text-lg text-indigo-200 mb-8">Android Developer</p>
             </div>
-        </div>
-    </header>
 
-    <section id="about" class="py-16 md:py-24 bg-white fade-in-section">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">About Me</h2>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
-                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
-                    I am a passionate **Android Developer** focused on creating modern, efficient, and user-friendly mobile applications. My expertise lies in **Kotlin**, the **MVVM architecture**, and Google's **Jetpack Compose** for building beautiful native UIs.
-                </p>
-                <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
-                    I have hands-on experience with core Jetpack libraries like **Room** for local storage, **Retrofit** for networking, **Dagger Hilt** for dependency injection, and leveraging **Kotlin Coroutines** and **Flows** for asynchronous programming. I enjoy tackling challenges and building robust solutions following modern Android development practices.
+            <div class="mb-10 text-center">
+                <h2 class="text-xl font-semibold mb-4 border-b border-indigo-500 pb-2 inline-block">Contact Info</h2>
+                <div class="space-y-3 text-indigo-100 text-base">
+                    
+                    <p class="flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i> shekhargh13@gmail.com
+                    </p>
+                    <a href="https://github.com/iamShekharGH" target="_blank" class="flex items-center justify-center hover:text-white transition duration-300">
+                        <i class="fab fa-github mr-2"></i> GitHub/iamShekharGH
+                    </a>
+                    <a href="https://www.linkedin.com/in/iamshekhargh/" target="_blank" class="flex items-center justify-center hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn/iamshekhargh
+                    </a>
+                </div>
+            </div>
+
+            <nav class="hidden md:block mb-10">
+                <h2 class="text-xl font-semibold mb-4 border-b border-indigo-500 pb-2 inline-block">Navigation</h2>
+                <ul class="space-y-2 text-indigo-100 text-lg">
+                    <li><a href="#about" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-user-circle mr-2"></i> About Me</a></li>
+                    <li><a href="#skills" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-cogs mr-2"></i> Skills</a></li>
+                    <li><a href="#experience" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-briefcase mr-2"></i> Experience</a></li>
+                    <li><a href="#projects" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-folder-open mr-2"></i> Projects</a></li>
+                    <li><a href="#education" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-graduation-cap mr-2"></i> Education</a></li>
+                    <li><a href="#contact" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"><i class="fas fa-paper-plane mr-2"></i> Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mb-10 mobile-hidden-in-sidebar">
+                <h2 class="text-xl font-semibold mb-4 border-b border-indigo-500 pb-2 inline-block">Quick Overview</h2>
+                <p class="text-indigo-100 text-sm leading-relaxed">
+                    With over 3+ years of experience, I specialize in crafting modern, efficient, and user-friendly mobile applications with a focus on Kotlin, Jetpack Compose, and MVVM architecture. I thrive on solving complex problems and building robust, scalable solutions.
                 </p>
             </div>
-        </div>
-    </section>
 
-    <section id="projects" class="py-16 md:py-24 bg-gray-100 fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">My Projects</h2>
-            <div class="w-20 h-1 bg-blue-600 mx-auto mb-12 rounded"></div>
+             <div class="mobile-hidden-in-sidebar">
+                <h2 class="text-xl font-semibold mb-4 border-b border-indigo-500 pb-2 inline-block">Key Tech</h2>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Kotlin</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">MVVM</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Dagger Hilt</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Room</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Retrofit</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Ktor</span>
+                    <span class="inline-block bg-indigo-600 text-indigo-100 px-2.5 py-0.5 rounded-full">Firebase</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="main-content flex-1 pt-8 pb-16 px-6 md:px-12">
+
+            <section id="about" class="py-8 md:py-16 bg-white rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800 text-center">About Me</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+                        With over 3+ years of experience as a <b>passionate Android Developer</b>, I specialize in crafting modern, efficient, and user-friendly mobile applications. I thrive on <b>solving complex problems</b> and building <b>robust, scalable solutions</b> that deliver exceptional user experiences.
+                    </p>
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+                        My expertise lies in <b>Kotlin</b>, the <b>MVVM architecture</b>, and Google's <b>Jetpack Compose</b> for building beautiful native UIs. I have hands-on experience with core Jetpack libraries like <b>Room</b> for local storage, <b>Retrofit</b> for networking, <b>Dagger Hilt</b> for dependency injection, and leveraging <b>Kotlin Coroutines</b> and <b>Flows</b> for asynchronous programming.
+                    </p>
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
+                        My background also includes <b>full-stack development experience with Kotlin backend (Ktor)</b>, providing a comprehensive understanding of the mobile ecosystem. My approach combines <b>technical proficiency</b> with a strong emphasis on <b>clean architecture, efficient code, and a user-centric design philosophy</b>. I am a <b>proactive learner</b> and a <b>collaborative team player</b>.
+                    </p>
+                </div>
+            </section>
+
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"> <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=AI+Summarizer" alt="AI Article Summarizer" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">AI Article Summarizer</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Summarizes web articles using Gemini API & Jsoup for content extraction. Built with a clean MVVM architecture.</p>
-                        <div class="mb-3 flex flex-wrap gap-2">
-                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
-                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
-                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gemini API</span>
-                             <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Dagger Hilt</span>
-                             <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
-                             <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jsoup</span>
+
+            <section id="skills" class="py-8 md:py-16 bg-gray-50 rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">My Expertise</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mb-12 rounded"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><i class="fas fa-code mr-3 text-blue-600"></i> Programming Languages</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Kotlin (Proficient)</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Java</li>
+                            </ul>
                         </div>
-                        <a href="https://github.com/iamShekharGH/AI_Article_Summarizer" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
-                            View on GitHub <i class="fab fa-github ml-1"></i>
-                        </a>
+
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><i class="fas fa-mobile-alt mr-3 text-blue-600"></i> UI & Android Jetpack</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Jetpack Compose</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Material Design Components</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> ViewModel, LiveData, StateFlow</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Room Persistence Library</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Coroutines, Paging 3, DataStore</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Data Binding, XML, Custom Views</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><i class="fas fa-project-diagram mr-3 text-blue-600"></i> Architecture & Data</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> MVVM, MVP, Clean Architecture Principles</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Hilt, Dagger (Dependency Injection)</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Retrofit, Ktor (Networking)</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Firebase (Authentication, Storage)</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Room, Realm, ORMLite (Local Storage)</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><i class="fas fa-tools mr-3 text-blue-600"></i> Tools & Methodologies</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Git, GitHub</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Gradle (Kotlin DSL)</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Unit Testing</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> RESTful APIs</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i> PostgreSQL (via Ktor backend)</li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
+            </section>
 
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Recipe+App" alt="Eat Well Live Well" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Eat Well Live Well - Recipe App</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Fetches recipes using the Spoonacular API, implements local caching with Room, and uses modern async patterns.</p>
-                         <div class="mb-3 flex flex-wrap gap-2">
-                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
-                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
-                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Spoonacular API</span>
-                            <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
-                            <span class="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Coroutines/Flows</span>
+            
+
+            <section id="experience" class="py-8 md:py-16 bg-white rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">My Experience</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mb-12 rounded"></div>
+
+                    <div class="max-w-4xl mx-auto space-y-12">
+
+                        <div class="bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sr. Software Engineer</h3>
+                            <p class="text-blue-600 text-lg mb-4">Edelweiss <span class="text-gray-500 text-base ml-4">1 yr 6 months</span></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Worked extensively with Android architectural components including <b>ViewModel</b> and <b>LiveData</b>.</li>
+                                <li>Developed user interfaces using <b>XML</b>, <b>Custom Views</b>, and <b>Material Design Components</b>.</li>
+                                <li>Integrated third-party libraries such as <b>Chart IQ</b>, <b>Yellow Messenger</b>, and <b>UserExperio</b>.</li>
+                                <li>Implemented push notifications using <b>Firebase Cloud Messaging (FCM)</b>.</li>
+                                <li>Utilized <b>Paging 3</b> for efficient data loading and display.</li>
+                                <li>Ensured code quality through <b>unit testing</b> and handled web content display via <b>WebView</b>.</li>
+                            </ul>
                         </div>
-                        <a href="https://github.com/iamShekharGH/Eat-Well-Live-Wel" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
-                             View on GitHub <i class="fab fa-github ml-1"></i>
-                        </a>
+
+                        <div class="bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Android Developer</h3>
+                            <p class="text-blue-600 text-lg mb-4">Housingman <span class="text-gray-500 text-base ml-4">1 yr 2 months</span></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Designed and implemented Android UIs using <b>XML</b> and <b>Custom Views</b>.</li>
+                                <li>Integrated <b>RESTful APIs</b> for backend communication using <b>Retrofit</b>.</li>
+                                <li>Managed image loading with <b>Glide</b>.</li>
+                                <li>Implemented local data storage solutions using <b>Realm</b>.</li>
+                                <li>Utilized <b>Firebase Cloud Messaging (FCM)</b> for push notifications.</li>
+                                <li>Enhanced UI aesthetics with <b>Custom Fonts</b>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Trainee</h3>
+                            <p class="text-blue-600 text-lg mb-4">Leedhar Tech <span class="text-gray-500 text-base ml-4">4 months</span></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Developed Android applications and integrated local data storage using <b>ORMLite</b>.</li>
+                                <li>Gained experience with cross-platform mobile development using <b>Cordova</b>.</li>
+                                <li>Implemented core Android functionalities for <b>email and SMS</b>.</li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
+            </section>
 
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Employee+CRM" alt="Employee CRM" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Employee CRM (Android + Ktor)</h3>
-                        <p class="text-gray-600 mb-4 text-sm">A full-stack CRM featuring an Android client and a Ktor backend server for managing employee data.</p>
-                        <div class="mb-3 flex flex-wrap gap-2">
-                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
-                             <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
-                            <span class="inline-block bg-cyan-100 text-cyan-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Ktor (Backend)</span>
-                            <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
+            
+
+            <section id="projects" class="py-8 md:py-16 bg-gray-100 rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">My Projects</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mb-12 rounded"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=AI+Summarizer" alt="AI Article Summarizer" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2 text-gray-800">AI Article Summarizer</h3>
+                                <p class="text-gray-600 mb-4 text-sm">Leverages <b>Gemini API for intelligent summarization</b> of web articles and <b>Jsoup for robust content extraction</b>. Features include <b>bookmarking functionality</b> and a clean <b>MVVM architecture</b> with Dagger Hilt &amp; Room.</p>
+                                <div class="mb-3 flex flex-wrap gap-2">
+                                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                                    <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                                    <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gemini API</span>
+                                    <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Dagger Hilt</span>
+                                    <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
+                                    <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jsoup</span>
+                                </div>
+                                <a href="https://github.com/iamShekharGH/AI_Article_Summarizer" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                                    View on GitHub <i class="fab fa-github ml-1"></i>
+                                </a>
+                                </div>
                         </div>
-                        <a href="https://github.com/iamShekharGH/Employee_crm" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
-                            View Client <i class="fab fa-github ml-1"></i>
-                        </a>
-                        <a href="https://github.com/iamShekharGH/Employee_CRM_Host" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300 ml-4">
-                            View Server <i class="fab fa-github ml-1"></i>
-                        </a>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Recipe+App" alt="Eat Well Live Well" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2 text-gray-800">Eat Well Live Well - Recipe App</h3>
+                                <p class="text-gray-600 mb-4 text-sm">A comprehensive recipe discovery application consuming the <b>Spoonacular API</b>. Implements <b>offline caching with Room</b>, <b>favorite management</b>, and utilizes modern asynchronous patterns like <b>Kotlin Coroutines and Flows</b>.</p>
+                                <div class="mb-3 flex flex-wrap gap-2">
+                                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                                    <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                                    <span class="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Spoonacular API</span>
+                                    <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
+                                    <span class="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Coroutines/Flows</span>
+                                </div>
+                                <a href="https://github.com/iamShekharGH/Eat-Well-Live-Wel" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                                    View on GitHub <i class="fab fa-github ml-1"></i>
+                                </a>
+                                </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Employee+CRM" alt="Employee CRM" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2 text-gray-800">Employee CRM (Android + Ktor)</h3>
+                                <p class="text-gray-600 mb-4 text-sm">A <b>full-stack Employee CRM</b> application with a feature-rich Android client built with <b>Jetpack Compose (MVVM)</b>, powered by a robust <b>Kotlin Ktor backend server with PostgreSQL</b> for efficient employee data management.</p>
+                                <div class="mb-3 flex flex-wrap gap-2">
+                                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                                    <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                                    <span class="inline-block bg-cyan-100 text-cyan-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Ktor (Backend)</span>
+                                    <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
+                                    <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">PostgreSQL</span>
+                                </div>
+                                <a href="https://github.com/iamShekharGH/Employee_crm" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                                    View Client <i class="fab fa-github ml-1"></i>
+                                </a>
+                                <a href="https://github.com/iamShekharGH/Employee_CRM_Host" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300 ml-4">
+                                    View Server <i class="fab fa-github ml-1"></i>
+                                </a>
+                                </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=NotesKeeper" alt="NotesKeeper" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2 text-gray-800">NotesKeeper - ToDo App</h3>
+                                <p class="text-gray-600 mb-4 text-sm">A secure ToDo list application with <b>Google Sign-In</b> and seamless <b>Firebase synchronization for cloud storage</b>. Features include notes with headings, descriptions, labels, and <b>scheduled notification reminders using AlarmManager</b>.</p>
+                                <div class="mb-3 flex flex-wrap gap-2">
+                                    <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
+                                    <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Firebase</span>
+                                    <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Google Sign-In</span>
+                                    <span class="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">AlarmManager</span>
+                                    <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                                </div>
+                                <a href="https://github.com/iamShekharGH/NotesKeeper" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                                    View on GitHub <i class="fab fa-github ml-1"></i>
+                                </a>
+                                </div>
+                        </div>
+
                     </div>
                 </div>
+            </section>
 
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=NotesKeeper" alt="NotesKeeper" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">NotesKeeper - ToDo App</h3>
-                        <p class="text-gray-600 mb-4 text-sm">A ToDo list app with Google Sign-In, Firebase synchronization, and scheduled notification reminders.</p>
-                        <div class="mb-3 flex flex-wrap gap-2">
-                             <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
-                            <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Firebase</span>
-                            <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Google Sign-In</span>
-                             <span class="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">AlarmManager</span>
-                        </div>
-                        <a href="https://github.com/iamShekharGH/NotesKeeper" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
-                             View on GitHub <i class="fab fa-github ml-1"></i>
-                        </a>
+            
+
+            <section id="education" class="py-8 md:py-16 bg-white rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">Education</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
+                    <div class="max-w-2xl mx-auto text-gray-700 text-lg">
+                        <p class="mb-2"><b>MCA - Master of Computer Applications</b></p>
+                        <p class="mb-6">SRM University</p>
+                        <p class="mb-2"><b>BCA - Bachelor of Computer Applications</b></p>
+                        <p>Sikkim Manipal University</p>
                     </div>
                 </div>
+            </section>
 
-            </div>
-        </div>
-    </section>
+            
 
-    <section id="contact" class="py-16 md:py-24 bg-white fade-in-section">
-        <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">Get In Touch</h2>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
-                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
-                    I'm open to discussing new projects, collaboration opportunities, or just chatting about Android development. Feel free to reach out!
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="mailto:shekhargh13@gmail.com" class="flex items-center text-lg text-blue-600 hover:text-blue-800 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
-                        <i class="fas fa-envelope fa-fw mr-2"></i> shekhargh13@gmail.com
-                    </a>
-                    <a href="https://github.com/iamShekharGH" target="_blank" class="flex items-center text-lg text-gray-700 hover:text-gray-900 transition duration-300 p-3 rounded-lg hover:bg-gray-100">
-                        <i class="fab fa-github fa-fw mr-2"></i> GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/iamshekhargh/" target="_blank" class="flex items-center text-lg text-blue-700 hover:text-blue-900 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
-                        <i class="fab fa-linkedin fa-fw mr-2"></i> LinkedIn
-                    </a>
+            <section id="contact" class="py-8 md:py-16 bg-gray-50 rounded-lg shadow-md mb-8 fade-in-section">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">Get In Touch</h2>
+                        <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
+                        <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
+                            I'm open to discussing new projects, collaboration opportunities, or just chatting about Android development. Feel free to reach out!
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <a href="mailto:shekhargh13@gmail.com" class="flex items-center text-lg text-blue-600 hover:text-blue-800 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
+                                <i class="fas fa-envelope fa-fw mr-2"></i> shekhargh13@gmail.com
+                            </a>
+                            <a href="https://github.com/iamShekharGH" target="_blank" class="flex items-center text-lg text-gray-700 hover:text-gray-900 transition duration-300 p-3 rounded-lg hover:bg-gray-100">
+                                <i class="fab fa-github fa-fw mr-2"></i> GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/iamshekhargh/" target="_blank" class="flex items-center text-lg text-blue-700 hover:text-blue-900 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
+                                <i class="fab fa-linkedin fa-fw mr-2"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p class="text-sm">&copy; <span id="currentYear"></span> Shekhar GH. All rights reserved.</p>
-            <p class="text-xs mt-1">Built with Tailwind CSS.</p>
-        </div>
-    </footer>
+            <footer class="bg-gray-800 text-gray-300 py-8 text-center rounded-lg">
+                <div class="container mx-auto px-6">
+                    <p class="text-sm">&copy; <span id="currentYear"></span> Shekhar GH. All rights reserved.</p>
+                    <p class="text-xs mt-1">Built with Tailwind CSS.</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
 
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mainNav = document.querySelector('nav.md\\:hidden'); // Select the mobile nav element
+
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
+                // Adjust main content padding based on menu visibility
+                if (!mobileMenu.classList.contains('hidden')) {
+                    document.querySelector('.main-content').style.paddingTop = mobileMenu.offsetHeight + 'px';
+                } else {
+                    document.querySelector('.main-content').style.paddingTop = '0px'; // Reset if hidden
+                }
             });
         }
-        document.querySelectorAll('#mobile-menu a, nav a:not(#mobile-menu-button)').forEach(link => {
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                     mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('hidden');
+                    document.querySelector('.main-content').style.paddingTop = '0px'; // Reset padding
                 }
             });
         });
+        // Close mobile menu if resized to desktop view
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                document.querySelector('.main-content').style.paddingTop = '0px'; // Reset padding
+            }
+        });
 
-        // Set current year
+
+        // Set current year in footer
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
         }
 
-        // Smooth scroll
+        // Smooth scroll for all internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    let offset = 0;
+                    // Adjust offset for fixed mobile navigation
+                    if (window.innerWidth < 768 && mainNav) {
+                        offset = mainNav.offsetHeight;
+                    }
+
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
                 }
             });
         });
 
-        // Fade-in sections
+        // Fade-in sections on scroll
         const sections = document.querySelectorAll('.fade-in-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -240,3 +478,4 @@
     </script>
 </body>
 </html>
+```
