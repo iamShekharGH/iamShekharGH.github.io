@@ -1,217 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>iamShekharGH</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">@iamShekharGH</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Dont Click</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Photos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Mail me!</a></li>
-                    </ul>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shekhar GH - Android Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="text-xl font-semibold text-gray-700 hover:text-blue-600 transition duration-300">@iamShekharGH</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">About</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300 px-3 py-2 rounded-md">Contact</a>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">Hi, this is Shekhar</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Hope you are doing Great! </p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">About Me</a>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="http://iamshekhargh.github.io/tictactoe/tictacToe.htm">Tic Tac Toe</a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#about" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">About</a>
+            <a href="#projects" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Projects</a>
+            <a href="#contact" class="block text-gray-600 hover:text-blue-600 transition duration-300 px-4 py-2">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <img src="https://placehold.co/150x150/FFFFFF/3B82F6?text=SG" alt="Shekhar GH" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Shekhar GH</h1>
+                <p class="text-lg md:text-2xl mb-8 text-indigo-100">Android Developer | Kotlin | Jetpack Compose | MVVM</p>
+                <a href="#projects" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 text-lg">View My Work</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">About Me</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+                    I am a passionate **Android Developer** focused on creating modern, efficient, and user-friendly mobile applications. My expertise lies in **Kotlin**, the **MVVM architecture**, and Google's **Jetpack Compose** for building beautiful native UIs.
+                </p>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
+                    I have hands-on experience with core Jetpack libraries like **Room** for local storage, **Retrofit** for networking, **Dagger Hilt** for dependency injection, and leveraging **Kotlin Coroutines** and **Flows** for asynchronous programming. I enjoy tackling challenges and building robust solutions following modern Android development practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-24 bg-gray-100 fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">My Projects</h2>
+            <div class="w-20 h-1 bg-blue-600 mx-auto mb-12 rounded"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"> <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=AI+Summarizer" alt="AI Article Summarizer" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">AI Article Summarizer</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Summarizes web articles using Gemini API & Jsoup for content extraction. Built with a clean MVVM architecture.</p>
+                        <div class="mb-3 flex flex-wrap gap-2">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gemini API</span>
+                             <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Dagger Hilt</span>
+                             <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
+                             <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jsoup</span>
+                        </div>
+                        <a href="https://github.com/iamShekharGH/AI_Article_Summarizer" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                            View on GitHub <i class="fab fa-github ml-1"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Kinda bored, will update these pages later.</h2>
-                        <hr class="divider light my-4" />
-                        <p class="text-white-50 mb-4">Don't really have a lot of written content on the projects yet. I'll try to update this next Sunday.</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Don't Click!</a>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Recipe+App" alt="Eat Well Live Well" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Eat Well Live Well - Recipe App</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Fetches recipes using the Spoonacular API, implements local caching with Room, and uses modern async patterns.</p>
+                         <div class="mb-3 flex flex-wrap gap-2">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Spoonacular API</span>
+                            <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Room</span>
+                            <span class="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Coroutines/Flows</span>
+                        </div>
+                        <a href="https://github.com/iamShekharGH/Eat-Well-Live-Wel" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                             View on GitHub <i class="fab fa-github ml-1"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <h2 class="text-center mt-0">Why? why? why? would you, when I told you not to.</h2>
-                <hr class="divider my-4" />
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Diamond Icon</h3>
-                            <p class="text-muted mb-0">Lets just take a moment to appritiate the designer!</p>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Employee+CRM" alt="Employee CRM" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Employee CRM (Android + Ktor)</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A full-stack CRM featuring an Android client and a Ktor backend server for managing employee data.</p>
+                        <div class="mb-3 flex flex-wrap gap-2">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Jetpack Compose</span>
+                             <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">MVVM</span>
+                            <span class="inline-block bg-cyan-100 text-cyan-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Ktor (Backend)</span>
+                            <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Coding Icon</h3>
-                            <p class="text-muted mb-0">Lets just take a moment to appritiate the designer!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Internet Icon</h3>
-                            <p class="text-muted mb-0">Lets just take a moment to appritiate the designer!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">You think this about me.</h3>
-                            <p class="text-muted mb-0">Lets just take a moment to appritiate the designer!</p>
-                        </div>
+                        <a href="https://github.com/iamShekharGH/Employee_crm" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                            View Client <i class="fab fa-github ml-1"></i>
+                        </a>
+                        <a href="https://github.com/iamShekharGH/Employee_CRM_Host" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300 ml-4">
+                            View Server <i class="fab fa-github ml-1"></i>
+                        </a>
                     </div>
                 </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=NotesKeeper" alt="NotesKeeper" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">NotesKeeper - ToDo App</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A ToDo list app with Google Sign-In, Firebase synchronization, and scheduled notification reminders.</p>
+                        <div class="mb-3 flex flex-wrap gap-2">
+                             <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Android</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Firebase</span>
+                            <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Google Sign-In</span>
+                             <span class="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">AlarmManager</span>
+                        </div>
+                        <a href="https://github.com/iamShekharGH/NotesKeeper" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+                             View on GitHub <i class="fab fa-github ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </section>
-        <!-- Portfolio-->
-        <div id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row no-gutters">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-gray-800">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-8 rounded"></div>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
+                    I'm open to discussing new projects, collaboration opportunities, or just chatting about Android development. Feel free to reach out!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="mailto:shekhargh13@gmail.com" class="flex items-center text-lg text-blue-600 hover:text-blue-800 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
+                        <i class="fas fa-envelope fa-fw mr-2"></i> shekhargh13@gmail.com
+                    </a>
+                    <a href="https://github.com/iamShekharGH" target="_blank" class="flex items-center text-lg text-gray-700 hover:text-gray-900 transition duration-300 p-3 rounded-lg hover:bg-gray-100">
+                        <i class="fab fa-github fa-fw mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/iamshekhargh/" target="_blank" class="flex items-center text-lg text-blue-700 hover:text-blue-900 transition duration-300 p-3 rounded-lg hover:bg-blue-50">
+                        <i class="fab fa-linkedin fa-fw mr-2"></i> LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- Call to action-->
-        <section class="page-section bg-dark text-white">
-            <div class="container text-center">
-                <h2 class="mb-4">Got this from here!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">If you want to get in touch with me, Shekhar</h2>
-                        <hr class="divider my-4" />
-                        <p class="text-muted mb-5">You can mail me or call me. or like go to my instagram and follow</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                        <div>+91  And then numbers are there.</div>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:shekhar13@gmail.com">contact@me.you.can</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container">
-                <div class="small text-center text-muted">
-                    Copy not right &copy;
-                    <!-- This script automatically adds the current year to your website footer-->
-                    <!-- (credit: https://updateyourfooter.com/)-->
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                    - Company Name nai hai.
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-sm">&copy; <span id="currentYear"></span> Shekhar GH. All rights reserved.</p>
+            <p class="text-xs mt-1">Built with Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        document.querySelectorAll('#mobile-menu a, nav a:not(#mobile-menu-button)').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                     mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Set current year
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }
+            });
+        });
+
+        // Fade-in sections
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+    </script>
+</body>
 </html>
