@@ -13,12 +13,10 @@ This repository hosts my personal portfolio website, designed to showcase my exp
 
 * **Responsive Design:** Optimized for various devices, from mobile to desktop.
 * **Two-Column Layout:** A clean and organized presentation with key contact and profile information on the left sidebar, and detailed content on the right.
-* **About Me:** A detailed introduction to my expertise and approach to Android development.
+* **About Me:** A detailed introduction to my expertise, education, and contact information in an organized two-column layout.
 * **Skills Overview:** A clear breakdown of my programming languages, Android Jetpack knowledge, architectural understanding, and development tools.
 * **Professional Experience:** Highlights my roles and the core Android technologies I utilized at each company.
 * **Key Projects:** Showcases personal and professional projects with descriptions, technology stacks, and links to their respective GitHub repositories.
-* **Education:** Summarizes my academic background.
-* **Contact Information:** Easy ways for recruiters and collaborators to get in touch.
 * **Smooth Scrolling & Fade-In Effects:** Enhances the user experience with subtle animations.
 
 ---
